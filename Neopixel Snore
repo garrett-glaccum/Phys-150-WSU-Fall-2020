@@ -1,0 +1,23 @@
+# this example is from adafruit
+# https://learn.adafruit.com/circuitpython-made-easy-on-circuit-playground-express/neopixels
+
+"""This example lights up the first NeoPixel red."""
+import time
+from adafruit_circuitplayground import cp
+
+cp.pixels.brightness = 0.1
+cp.pixels.fill((0,0,0))
+ 
+i=0;
+while True:
+    while (i<255):
+        cp.pixels[0] = (255-i, 0, 0)
+        i+=5
+        time.sleep(0.03)
+    while (i>0):
+        cp.pixels[0] = (255-i, 0, 0)
+        i-=5
+        time.sleep(0.03)
+    
+# how can this be modified to produce constant brightness? (normalize RGB values via pythagorus?)
+# are the pixels uniform?
