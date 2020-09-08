@@ -1,0 +1,83 @@
+/**
+ * Class Name: Rectangle
+ * @author Garrett Glaccum, 9/3/2020
+ * Problem Description: Create a Java application that can be used to define and calculate the properties of a rectangle (area and perimeter). 
+ * 						The user will input desired dimensions and the program will output the properties accurately.
+ * Goals: The user will input their desired dimensions of a rectangle
+ *			The program will calculate the properties of the rectangle based on the given values
+ *			The program will output the accurate values for the properties to the user
+ * Inputs: Length; Width
+ * Outputs: Area; Perimeter
+ * Java Packages: Java.util.Scanner
+ * Input and outputs screen format: 
+ * 		“Enter Length of Rectangle 1: <length> “
+ *		“Enter Width of Rectangle 1: <width>“
+ *		“Here is the Area of Rectangle 1: <area>“
+ *		“Here is the Perimeter of Rectangle 1: <perimeter>“
+ *		“Enter Length of Rectangle 2: <length>“
+ *		“Enter Width of Rectangle 2: <width>“
+ *		“Here is the Area of Rectangle 2: <area>“
+ *		“Here is the Width of Rectangle 2: <perimeter>”
+ * Test-Suite:
+ * 		length = 10, width = 4 => area = 40.0, perimeter = 28.0
+ * 		length = 2, width = 3 => area = 6.0, perimeter = 10.0
+ * Pseudocode: (main)
+ * 		- create and instance of the Rectangle
+ * 		- call the readInput() method to read the length and width
+ * 		- call the getArea()
+ * 		- call the getPerimeter()
+ */
+import java.util.Scanner;
+
+public class Rectangle {
+	private int length;		//The length of the rectangle
+	private int width;		//The width of the rectangle
+	
+	/*
+	 * This is the constructor of the Rectangle class
+	 */
+	public Rectangle() {
+		//TODO Auto-generated constructor stub
+		//length = 0; width = 0; 	//This line is not required in Java, hence why there is the "//" (no fault if actual command)
+	}
+	/*
+	 * readInput: read the input for length and width from the console
+	 * Input: System.in
+	 * Output: None
+	 */
+	public void readInput() {
+		Scanner user_inputs = new Scanner(System.in);
+		System.out.print("Enter the length: ");
+		length = user_inputs.nextInt();
+		System.out.print("Enter the Width: ");
+		width = user_inputs.nextInt();
+	}
+	/*
+	 * getArea(): calculate the area and print to console
+	 * Input: length and width (internal veriable)
+	 * Output: console
+	 */
+	public void getArea() {
+		int area = length * width;
+		System.out.println("The area of the rectangle is: " + area);
+	}
+	
+	public void getPerimeter() {
+		int perimeter = 2 * (length + width);
+		System.out.println("The perimeter of the rectangle is: " + perimeter);
+	}
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		Rectangle rect1 = new Rectangle(); //create a new instance of the Rectangle
+		rect1.readInput();	//read input from console
+		rect1.getArea();	//calculate the area and output to console
+		rect1.getPerimeter();	//calculate the perimeter and output to console
+		Rectangle rect2 = new Rectangle(); //create another new instance of the Rectangle
+		rect2.readInput(); 	//read input from console
+		rect2.getArea();	//calculate the area and output to console
+		rect2.getPerimeter();	//calculate the perimeter and output to console
+		
+	}
+
+}
