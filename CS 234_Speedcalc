@@ -1,0 +1,81 @@
+/**
+ * Class Name: Speedcalc
+ * @author Garrett Glaccum, 9/7/2020
+ * Problem Description: Create a Java application that can be used to calculate the speed of a specific object in both meters per seconds 
+ * 						and kilometers per hour. The user will input the desired distance in meters and the desired time in seconds and 
+ * 						the program will output the m/s and km/h.
+ * Goals: The user will input their desired distance and time
+ * 			The program will calculate the speed of the object based on the given values
+ * 			The program will output each speed in its individual formats accurately
+ * Inputs: Distance; Time
+ * Outputs: Speed in m/s; Speed in km/h
+ * Java Packages: Java.util.Scanner
+ * Input and outputs screen format: 
+ * 		"Enter distance traveled in meters:"
+ *		"Enter amount of time in seconds:"
+ * 		"The Speed traveled in meters per second is:"
+ *		"The Speed traveled in kilometers per hour is:"
+ * Test-Suite:
+ * 		distance = 1000 meters, time = 3600 seconds => m/s = 0.2777778 m/s, km/h = 1
+ * Pseudocode: (main)
+ * 		- create and instance of the Speedcalc
+ * 		- call the readInput() method to read the distance and time
+ * 		- call the getDistance()
+ * 		- call the getTime()
+ */
+import java.util.Scanner;
+
+public class speedcalc {
+	private float distance;		//The distance traveled in meters
+	private float time;		//The time duration in seconds
+	/*
+	 * This is the constructor of the speedcalc class
+	 */
+	public speedcalc() {
+		//TODO Auto-generated constructor stub
+	}
+	/*
+	 * readInput: read the input for distance and time from the console
+	 * Input: System.in
+	 * Output: None
+	 */
+	public void readInput() {
+		Scanner user_inputs = new Scanner(System.in);
+		System.out.print("Enter the distance traveled in meters: ");
+		distance = user_inputs.nextInt();
+		System.out.print("Enter the time in seconds: ");
+		time = user_inputs.nextInt();
+		user_inputs.close();
+	}
+	/*
+	 * getMeterspersecond(): calculate the speed in m/s and print to console
+	 * Input: distance and time (internal variable)
+	 * Output: console
+	 */
+	public void getMeterspersecond() {
+		float mpers = distance / time;
+		System.out.println("The Speed traveled in meters per second " +mpers+ " m/s.");
+	}
+	/*
+	 * getKilometerperhour(): calculate the speed in km/h and print to console
+	 * Input: distance and time (internal variable)
+	 * Output: console
+	 */
+	public void getKilometersperhour() {
+		float kperh = (distance / 1000) / (time / 3600);
+		System.out.println("The Speed traveled in kilometers per hour is " +kperh+ " km/h.");
+	}
+	/*
+	 * The is the main method that contains the code
+	 */
+
+	public static void main(String[] args)
+	{
+		
+		speedcalc calc1= new speedcalc(); //create new instance of speedcalc
+		calc1.readInput(); //read input from console
+		calc1.getMeterspersecond(); //calculate m/s and output to console
+		calc1.getKilometersperhour(); //calculate km/h and output to console
+		
+	}
+}
