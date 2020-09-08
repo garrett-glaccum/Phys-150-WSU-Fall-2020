@@ -1,0 +1,21 @@
+java.util.Scanner;
+import java.time.LocalDate; 
+import java.time.LocalTime;
+import java.time.format.DateTimeFormatter;  
+public class Lab01 {
+
+	public static void main(String[] args)
+	{
+		Scanner input = new Scanner (System.in);
+	    System.out.print("Input your name: ");
+	    String name = input.next();
+	    System.out.print("Welcome "+name+". ");
+	    LocalDate date = LocalDate.now();
+	    System.out.print("Today is "+date); 
+	    DateTimeFormatter formatter = DateTimeFormatter.ofPattern("HH:mm:ss");
+	    LocalTime time = LocalTime.now();
+	    String f = formatter.format(time);
+	    System.out.println(" and the time is "+f+".");
+	   input.close();
+	}
+}
