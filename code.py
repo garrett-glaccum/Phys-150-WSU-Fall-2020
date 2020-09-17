@@ -1,26 +1,55 @@
-# from adafruit
-# https://learn.adafruit.com/welcome-to-circuitpython/creating-and-editing-code
-#
-import board
-import digitalio
 import time
+from adafruit_circuitplayground import cp
 
-led = digitalio.DigitalInOut(board.D13)
-led.direction = digitalio.Direction.OUTPUT
+cp.pixels.brightness = .15
 
+i=255;
 while True:
-  # note the new line: "a" is a variable that takes the values that are
-  # listed in square brackets.  This loop is sometimes called a "foreach"
-  for a in [0.35,0.35,0.35,1.25,1.25,1.25,0.35,0.35, 0.35]:
-        print("Hello, CircuitPython!")
-        led.value = True
-        time.sleep(a/2)
-        led.value = False
-        time.sleep(a/2)
-  for b in [1.25]:
-        print("Hello, CircuitPython!")
-        led.value = False
-        time.sleep(b/2)
-
-# What if you wanted the LED to be a bright-dim oscillating pattern?
-# loops? You could blink out an SOS pattern (...---...) with a foreach loop that specifies duration
+    cp.pixels.fill((50,50,50))
+    time.sleep(1)
+    while (i>0):
+        i-=51
+        time.sleep(0.06)
+        cp.pixels[0] = (255-i, 0, 0)
+        time.sleep(0.06)
+        cp.pixels[1] = (255-i, 255-i, 0)
+        time.sleep(0.06)
+        cp.pixels[2] = (255-i, 255-i, 255-i)
+        time.sleep(0.06)
+        cp.pixels[3] = (255-i, 0, 255-i)
+        time.sleep(0.06)
+        cp.pixels[4] = (0, 0, 255-i)
+        time.sleep(0.06)
+        cp.pixels[5] = (0, 0, 255-i)
+        time.sleep(0.06)
+        cp.pixels[6] = (255-i, 0, 255-i)
+        time.sleep(0.06)
+        cp.pixels[7] = (255-i, 255-i, 255-i)
+        time.sleep(0.06)
+        cp.pixels[8] = (255-i, 255-i, 0)
+        time.sleep(0.06)
+        cp.pixels[9] = (255-i, 0, 0)
+        time.sleep(0.06)
+    while (i<255):
+        i+=51
+        time.sleep(0.06)
+        cp.pixels[9] = (255-i, 0, 0)
+        time.sleep(0.06)
+        cp.pixels[8] = (255-i, 255-i, 0)
+        time.sleep(0.06)
+        cp.pixels[7] = (255-i, 255-i, 255-i)
+        time.sleep(0.06)
+        cp.pixels[6] = (255-i, 0, 255-i)
+        time.sleep(0.06)
+        cp.pixels[5] = (0, 0, 255-i)
+        time.sleep(0.06)
+        cp.pixels[4] = (0, 0, 255-i)
+        time.sleep(0.06)
+        cp.pixels[3] = (255-i, 0, 255-i)
+        time.sleep(0.06)
+        cp.pixels[2] = (255-i, 255-i, 255-i)
+        time.sleep(0.06)
+        cp.pixels[1] = (255-i, 255-i, 0)
+        time.sleep(0.06)
+        cp.pixels[0] = (255-i, 0, 0)
+        time.sleep(0.06)
