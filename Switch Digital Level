@@ -33,7 +33,7 @@ while True:
         x, y, z = cpx.acceleration
         time.sleep(0.1)
         
-        if x == 0.0:
+        if y == 0.0:
             angle_from_vertical = 90
         else:
             angle_from_vertical = math.atan(x/y)*180/math.pi
